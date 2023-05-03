@@ -1,21 +1,16 @@
+'''run stuff asynchronously!'''
 
 import os
 import sys
 import asyncio
 import inspect
 import importlib
-from typing import Any, Awaitable
 
 args = sys.argv
 cmd_path = f"{os.path.abspath( os.path.dirname( __file__ ) )}"
 
-async def run_sequence(*functions: Awaitable[Any]) -> None:
-  for function in functions: await function
-
-async def run_parallel(*functions: Awaitable[Any]) -> None:
-  await asyncio.gather(*functions)
-
 async def check_args():
+  '''run modules, classes, and methods from the command line'''
 
   if len(args) >= 1:      
     arg = args[1]
@@ -34,9 +29,7 @@ async def check_args():
       else:pass#print('neither file or directory')
 
   if len(args) >= 2:
-
     for arg in args[2:]:
-
       if len(arg.split('.')) == 2:
         try:
           theclass = getattr(module, arg.split('.')[0])
@@ -49,7 +42,6 @@ async def check_args():
             params.insert(0, '()')
             if args[3:]:await themethod(*params)
             elif not args[3:]:await themethod(*params)
-
           else:
             if args[3:]:
               if method_full_args[1] != None:await themethod(*params)
@@ -82,18 +74,12 @@ async def check_args():
         #  print('error 2',err)
         except:pass
 
-async def startup():
-  await run_parallel(
-    #add another func here, 
-    check_args(),
-  )
-
 if __name__ == '__main__':
   try:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.wait([
-      #add another func here 
-      startup()
+      check_args(),
+      #something_else(),
     ]))
   except KeyboardInterrupt:quit()
   except Exception as err:print('****ERROR****',err)
