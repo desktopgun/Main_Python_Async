@@ -6,16 +6,17 @@
 
 example uses:
 
-python Main_Script_Dir somepypage.func 'arg' 'arg'
+python Main_Script_Dir somemodule func 'arg' 'arg'
 
-python Main_Script_Dir somepypage.class.func 'arg' 'arg'
+python Main_Script_Dir somemodule class.func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somepypage.class.func 'arg' 'arg'
+python Main_Script_Dir somefolder.somemodule class.func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somefolder.somepypage.func 'arg' 'arg'
+python Main_Script_Dir somefolder.somemodule func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somefolder.somepypage.class.func 'arg' 'arg'
+python Main_Script_Dir somefolder.somefolder.somemodule class.func 'arg' 'arg'
 
+python Main_Script_Dir somefolder.somefolder.somemodule func 'arg' 'arg'
 ### _________________________________________________________
 
 
