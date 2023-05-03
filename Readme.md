@@ -6,15 +6,15 @@
 
 example uses:
 
-python Main_Script_Dir somepypage.func *arg *arg
+python Main_Script_Dir somepypage.func 'arg' 'arg'
 
-python Main_Script_Dir somepypage.class.func *arg *arg
+python Main_Script_Dir somepypage.class.func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somepypage.class.func
+python Main_Script_Dir somefolder.somepypage.class.func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somefolder.somepypage.func
+python Main_Script_Dir somefolder.somefolder.somepypage.func 'arg' 'arg'
 
-python Main_Script_Dir somefolder.somefolder.somepypage.class.func
+python Main_Script_Dir somefolder.somefolder.somepypage.class.func 'arg' 'arg'
 
 ### _________________________________________________________
 
