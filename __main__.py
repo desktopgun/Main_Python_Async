@@ -8,6 +8,7 @@ import importlib
 
 args = sys.argv
 cmd_path = f"{os.path.abspath( os.path.dirname( __file__ ) )}"
+__path__ = cmd_path
 
 async def check_args():
   '''run modules, classes, and methods from the command line'''
